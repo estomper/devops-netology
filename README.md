@@ -15,4 +15,5 @@
 12. .terraformrc - игнорировать файл .terraformrc
 13. terraform.rc - игнорировать файл terraform.rc
 add new line
-test GIT IDE
+test_1 GIT IDE 
+test_2 GIT IDE
