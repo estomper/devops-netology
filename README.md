@@ -13,4 +13,4 @@
 10. *_override.tf - игнорировать все файлы имя которых оканчивается на _override.tf
 11. *_override.tf.json - игнорировать все файлы имя которых оканчивается на _override.tf.json
 12. .terraformrc - игнорировать файл .terraformrc
-13. terraform.rc - игнорировать файл terraform.rc
+13. terraform.rc - игнорировать файл terraform.rcadd new line
