@@ -47,7 +47,7 @@ https://hub.docker.com/r/estomper/nginx-devops
 Подключитесь во второй контейнер и отобразите листинг и содержание файлов в /data контейнера.
 
 ## Ответ  
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-virt-03-docker/img/ex_3)
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-virt-03-docker/img/ex_3.png)
 
 ## Задача 4  
 Воспроизведите практическую часть лекции самостоятельно.
