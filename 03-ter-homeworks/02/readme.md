@@ -71,8 +71,4 @@ preemptible- (Необязательно) Указывает, является �
 3. local.test_map.admin  
 4. Не понял какой функцией объединять данные, но логика будет такая:  
     
-local.test_map.admin + " is admin for " + local.test_list[2] + 
-" server based on OS " + local.servers.production.image +
- " with " + local.servers.production.cpu + " vcpu, " + 
- + local.servers.production.ram + " ram, " + 
- + length(local.servers.production.disks) + " virtual disks."
+local.test_map.admin + " is admin for " + local.test_list[2] + " server based on OS " + local.servers.production.image + " with " + local.servers.production.cpu + " vcpu, " + local.servers.production.ram + " ram, " + length(local.servers.production.disks) + " virtual disks."
