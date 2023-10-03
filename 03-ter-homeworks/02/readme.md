@@ -1,6 +1,6 @@
 # Домашнее задание к занятию 2.  «Основы Terraform. Yandex Cloud»
   
-Ссылка на репо - ************
+Ссылка на репо - https://github.com/estomper/devops-netology/tree/main/03-ter-homeworks/02/src
 
 ## Задача 0
 Запросите preview-доступ к этому функционалу в личном кабинете Yandex Cloud. Обычно его выдают в течение 24-х часов. https://console.cloud.yandex.ru/folders/<ваш cloud_id>/vpc/security-groups.  
@@ -55,7 +55,7 @@ preemptible- (Необязательно) Указывает, является �
 ## Задача 6
 Проверьте terraform plan. Изменений быть не должно.
 ## Ответ
-Ссылка на репо - **************
+Ссылка на репо - https://github.com/estomper/devops-netology/tree/main/03-ter-homeworks/02/src
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/02/img/img_8.png)  
 
 
