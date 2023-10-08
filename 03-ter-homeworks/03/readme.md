@@ -36,6 +36,12 @@
 
 Приложите скриншот входящих правил «Группы безопасности» в ЛК Yandex Cloud или скриншот отказа в предоставлении доступа к preview-версии.
 
+## Ответ:
+Группы безопасности  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/img/img_1.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/img/img_2.png)  
+
+
 ------
 
 ### Задание 2
@@ -46,6 +52,13 @@
 4. Используйте функцию file в local-переменной для считывания ключа ~/.ssh/id_rsa.pub и его последующего использования в блоке metadata, взятому из ДЗ 2.
 5. Инициализируйте проект, выполните код.
 
+## Ответ:
+файл count-vm.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/src/count-vm.tf  
+файл for_each-vm.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/src/for_each-vm.tf  
+файл locals.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/src/locals.tf  
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/img/img_3.png)  
+
 ------
 
 ### Задание 3
@@ -53,6 +66,9 @@
 1. Создайте 3 одинаковых виртуальных диска размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле **disk_vm.tf** .
 2. Создайте в том же файле **одиночную**(использовать count или for_each запрещено из-за задания №4) ВМ c именем "storage"  . Используйте блок **dynamic secondary_disk{..}** и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
 
+## Ответ:
+файл disk_vm.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/src/disk_vm.tf  
+ 
 ------
 
 ### Задание 4
@@ -64,47 +80,17 @@
 2. Инвентарь должен содержать 3 группы [webservers], [databases], [storage] и быть динамическим, т. е. обработать как группу из 2-х ВМ, так и 999 ВМ.
 4. Выполните код. Приложите скриншот получившегося файла. 
 
+## Ответ:
+файл ansible.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/src/ansible/ansible.tf  
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/03/img/img_4.png)  
+
+
 Для общего зачёта создайте в вашем GitHub-репозитории новую ветку terraform-03. Закоммитьте в эту ветку свой финальный код проекта, пришлите ссылку на коммит.   
 **Удалите все созданные ресурсы**.
 
 ------
 
-## Дополнительные задания (со звездочкой*)
-
-**Настоятельно рекомендуем выполнять все задания со звёздочкой.** Они помогут глубже разобраться в материале.   
-Задания со звёздочкой дополнительные, не обязательные к выполнению и никак не повлияют на получение вами зачёта по этому домашнему заданию. 
-
-### Задание 5* (необязательное)
-1. Напишите output, который отобразит все 5 созданных ВМ в виде списка словарей:
-``` 
-[
- {
-  "name" = 'имя ВМ1'
-  "id"   = 'идентификатор ВМ1'
-  "fqdn" = 'Внутренний FQDN ВМ1'
- },
- {
-  "name" = 'имя ВМ2'
-  "id"   = 'идентификатор ВМ2'
-  "fqdn" = 'Внутренний FQDN ВМ2'
- },
- ....
-]
-```
-Приложите скриншот вывода команды ```terrafrom output```.
-
-------
-
-### Задание 6* (необязательное)
-
-1. Используя null_resource и local-exec, примените ansible-playbook к ВМ из ansible inventory-файла.
-Готовый код возьмите из демонстрации к лекции [**demonstration2**](https://github.com/netology-code/ter-homeworks/tree/main/demonstration2).
-3. Дополните файл шаблон hosts.tftpl. 
-Формат готового файла:
-```netology-develop-platform-web-0   ansible_host="<внешний IP-address или внутренний IP-address если у ВМ отсутвует внешний адрес>"```
-
-Для проверки работы уберите у ВМ внешние адреса. Этот вариант используется при работе через bastion-сервер.
-Для зачёта предоставьте код вместе с основной частью задания.
 
 ### Правила приёма работы
 
