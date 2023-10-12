@@ -18,6 +18,8 @@
 ### Внимание!! Обязательно предоставляем на проверку получившийся код в виде ссылки на ваш github-репозиторий!
 ------
 
+ссылка на репо - https://github.com/estomper/devops-netology/tree/main/03-ter-homeworks/04/src
+
 ### Задание 1
 
 1. Возьмите из [демонстрации к лекции готовый код](https://github.com/netology-code/ter-homeworks/tree/main/04/demonstration1) для создания ВМ с помощью remote-модуля.
@@ -52,6 +54,7 @@ module "vpc_dev" {
 }
 ```
 ## Ответ:
+/vpc/main.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/src/vpc/main.tf
 main.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/src/main.tf  
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/img_2.png) 
 
