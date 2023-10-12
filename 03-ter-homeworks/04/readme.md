@@ -26,6 +26,10 @@
 3. Добавьте в файл cloud-init.yml установку nginx.
 4. Предоставьте скриншот подключения к консоли и вывод команды ```sudo nginx -t```.
 
+## Ответ:
+main.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/src/main.tf  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/img_1.png) 
+
 ------
 
 ### Задание 2
@@ -47,6 +51,11 @@ module "vpc_dev" {
   cidr = "10.0.1.0/24"
 }
 ```
+## Ответ:
+main.tf - https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/src/main.tf  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/img_2.png) 
+
+------
 
 ### Задание 3
 1. Выведите список ресурсов в стейте.
@@ -54,6 +63,48 @@ module "vpc_dev" {
 3. Полностью удалите из стейта модуль vm.
 4. Импортируйте всё обратно. Проверьте terraform plan. Изменений быть не должно.
 Приложите список выполненных команд и скриншоты процессы.
+
+## Ответ:
+Список ресурсов в стейте:  
+Команды:  
+>terraform state list  
+>terraform state show 'module.vpc.yandex_vpc_network.vpc'  
+>terraform state show 'module.vpc.yandex_vpc_network.vpc'  
+>terraform state show 'module.test-vm.data.yandex_compute_image.my_image'  
+>terraform state show 'module.test-vm.yandex_compute_instance.vm[0]'
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_1.png) 
+    
+Полностью удалите из стейта модуль vpc:  
+Команды:  
+>terraform state rm 'module.vpc.yandex_vpc_network.vpc'  
+>terraform state rm 'module.vpc.yandex_vpc_subnet.subnet'  
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_2.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_3.png) 
+  
+Полностью удалите из стейта модуль vm: 
+Команды:  
+>terraform state rm 'module.test-vm.data.yandex_compute_image.my_image'  
+>terraform state rm 'module.test-vm.yandex_compute_instance.vm[0]'  
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_4.png) 
+
+Импортируйте всё обратно. Проверьте terraform plan.
+Команды:  
+>terraform import 'module.vpc.yandex_vpc_network.vpc' 'enptj6a4l6fbbrjllrem'  
+>terraform import 'module.vpc.yandex_vpc_subnet.subnet' 'e9bce6lo7j1nqgkp81mc'  
+>terraform import 'module.test-vm.data.yandex_compute_image.my_image' 'fd826honb8s0i1jtt6cg'  
+>terraform import 'module.test-vm.yandex_compute_instance.vm[0]' 'fhmnchfqsovc1u6hglk6'  
+>terraform plan  
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_5.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_6.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_7.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/04/img/terraform_state_8.png) 
+
+
+------
 
 ## Дополнительные задания (со звёздочкой*)
 
