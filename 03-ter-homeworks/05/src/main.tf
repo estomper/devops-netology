@@ -2,6 +2,11 @@ terraform {
   required_providers {
     yandex = {
       source = "yandex-cloud/yandex"
+      version = ">=0.13"
+    }
+    template = {
+      source = "hashicorp/template"
+      version = "<=2.2.0"
     }
   }
   required_version = ">=0.13"
@@ -27,15 +32,15 @@ provider "yandex" {
 }
 
 module "vpc" {
-  source           = "./vpc"
-  name         = "develop"
-  zone         = "ru-central1-a"
+  source          = "./vpc"
+  name            = "develop"
+  zone            = "ru-central1-a"
   v4_cidr_blocks  = ["10.10.0.0/24"]
 }
 
 
 module "test-vm" {
-  source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=95c286e0062805d5ba5edb866f387247bc1bbd44"
   env_name        = "develop"
   network_id      = module.vpc.network_id
   subnet_zones    = module.vpc.subnet_zones
@@ -44,19 +49,17 @@ module "test-vm" {
   instance_count  = 1
   image_family    = "ubuntu-2004-lts"
   public_ip       = true
-  
   metadata = {
       user-data          = data.template_file.cloudinit.rendered #Для демонстрации №3
       serial-port-enable = 1
   }
-
 }
 
 #Пример передачи cloud-config в ВМ для демонстрации №3
 data "template_file" "cloudinit" {
- template = file("./cloud-init.yml")
- vars = {
-    ssh-keys  = "${file("~/.ssh/id_rsa.pub")}"
+  template = file("./cloud-init.yml")
+  vars = {
+    ssh-keys  = file("~/.ssh/id_rsa.pub")
   }
 }
 
