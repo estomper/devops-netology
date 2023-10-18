@@ -27,6 +27,14 @@
 3. Перечислите, какие **типы** ошибок обнаружены в проекте (без дублей).
 
 ------
+## Ответ:  
+типы ошибок: terraform_required_providers, terraform_module_pinned_source, terraform_unused_declarations  
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_1.1.png) 
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_1.2.png) 
+
+------
 
 ### Задание 2
 
@@ -36,7 +44,26 @@
 4. Откройте в проекте terraform console, а в другом окне из этой же директории попробуйте запустить terraform apply.
 5. Пришлите ответ об ошибке доступа к state.
 6. Принудительно разблокируйте state. Пришлите команду и вывод.
-
+------
+## Ответ: 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.1.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.2.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.3.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.4.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.5.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.6.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.7.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.8.png)
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_2.9.png)
+  
 
 ------
 ### Задание 3  
@@ -48,12 +75,22 @@
 5. Пришлите ссылку на PR для ревью. Вливать код в 'terraform-05' не нужно.
 
 ------
+## Ответ: 
+PR - https://github.com/estomper/devops-netology/pull/1
+
+------
 ### Задание 4
 
 1. Напишите переменные с валидацией и протестируйте их, заполнив default верными и неверными значениями. Предоставьте скриншоты проверок из terraform console. 
 
 - type=string, description="ip-адрес" — проверка, что значение переменной содержит верный IP-адрес с помощью функций cidrhost() или regex(). Тесты:  "192.168.0.1" и "1920.1680.0.1";
 - type=list(string), description="список ip-адресов" — проверка, что все адреса верны. Тесты:  ["192.168.0.1", "1.1.1.1", "127.0.0.1"] и ["192.168.0.1", "1.1.1.1", "1270.0.0.1"].
+
+------
+## Ответ: 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/03-ter-homeworks/05/img/img_4.1.png)
+------
+
 
 ## Дополнительные задания (со звёздочкой*)
 
