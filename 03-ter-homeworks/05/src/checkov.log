@@ -1,0 +1,18 @@
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By bridgecrew.io | version: 2.5.11 
+
+terraform scan results:
+
+Passed checks: 1, Failed checks: 0, Skipped checks: 0
+
+Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+	PASSED for resource: test-vm
+	File: /main.tf:42-56
+	Guide: https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma/prisma-cloud/prisma-cloud-code-security-policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision.html
+
