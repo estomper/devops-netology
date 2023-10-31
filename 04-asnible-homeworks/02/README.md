@@ -23,9 +23,13 @@
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
 9.  Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги. Пример качественной документации ansible playbook по [ссылке](https://github.com/opensearch-project/ansible-playbook).
   
-## Ответ: https://github.com/estomper/devops-netology/blob/main/04-asnible-homeworks/02/playbook/README.md
+## Ответ:
+https://github.com/estomper/devops-netology/blob/main/04-asnible-homeworks/02/playbook/README.md  
 
-10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
+10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.  
+    
+## Ответ:
+https://github.com/estomper/devops-netology/blob/main/04-asnible-homeworks/02/playbook/README.md
 
 ---
 
