@@ -1,0 +1,6 @@
+---
+nginx_user_name: "alex"
+lighthouse_git: "https://github.com/VKCOM/lighthouse.git"
+lighthouse_dir: "/lighthouse"
+lighthouse_port: 80
+

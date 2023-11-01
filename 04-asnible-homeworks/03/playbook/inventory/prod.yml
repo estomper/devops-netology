@@ -1,10 +1,15 @@
 ---
 clickhouse:
   hosts:
-    centos-01:
-      ansible_host: 51.250.6.243
-      user: alex
+    clickhouse:
+      ansible_host: 84.201.159.183
+
 vector:
   hosts:
-    centos-01:
-      ansible_host: 51.250.6.243
+    vector:
+      ansible_host: 51.250.2.231
+
+lighthouse:
+  hosts:
+    lighthouse:
+      ansible_host: 158.160.42.144
