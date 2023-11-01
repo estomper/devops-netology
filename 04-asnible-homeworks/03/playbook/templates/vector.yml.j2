@@ -1,0 +1,26 @@
+# Set global options
+data_dir: "/vector"
+
+# Vector's API (disabled by default)
+# Enable and try it out with the `vector top` command
+api:
+  enabled: false
+# address = "127.0.0.1:8686"
+
+# Ingest data by tailing one or more files
+sources:
+  my_source_logs:
+    type: "file"
+    include:
+      - "/log/*.log" # supports globbing
+    ignore_older: 86400          # 1 day
+
+
+# Send data to clichouse
+sinks:
+  my_sink_clickhouse:
+    type: clickhouse
+    inputs:
+      - my_source_logs
+    endpoint: http://localhost:8123
+    table: mytable
