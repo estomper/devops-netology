@@ -14,9 +14,19 @@
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
-8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
-9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/04-asnible-homeworks/03/img/img_1.png)
+  
+8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен. 
+9.  Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
+  
+## Ответ:
+https://github.com/estomper/devops-netology/blob/main/04-asnible-homeworks/03/playbook/README.md  
+  
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-03-yandex` на фиксирующий коммит, в ответ предоставьте ссылку на него.
+  
+## Ответ:
+https://github.com/estomper/devops-netology/tree/08-ansible-03-yandex/04-asnible-homeworks/03/playbook  
 
 ---
 
