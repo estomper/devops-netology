@@ -1,38 +1,41 @@
-# Ansible-Playbook Install Clickhouse and Vector
+# Ansible-Playbook Install Clickhouse, Vector and LightHouse
 
 ## Описание Playbook
 
-### Play Install Clickhouse 
-``` /site.yml```  
-Состоит из Tasks:  
-- ```Get clickhouse distrib``` - загрузка пакетов Clickhouse (clickhouse-common-static, clickhouse-client, clickhouse-server) версии ```clickhouse_version```  
-- ```Install clickhouse packages``` - установка пакетов Clickhouse  
-- ```Create database``` - создание БД Clickhouse  
+```/site.yml```  
+Состоит из roles:  
+- ```Install Clickhouse``` - загрузка пакетов Clickhouse (clickhouse-common-static, clickhouse-client, clickhouse-server), выполняет роль ```clickhouse```
+- ```Install Vector``` -  Установка и настройка Vector, выполняет роль ```vector-role```
+- ```Install Nginx + LightHouse``` -  Установка и настройка Nginx + LightHouse, выполняет роль ```lighthouse-role```
+--- 
 
-### Play Install Vector
-Состоит из Tasks:  
-- ```Mkdir vector``` - подготовка дирректории  
-- ```Download Vector``` - загрузка архива с Vector версии ```vector_version```  
-- ```Configure Vector Template config``` - создает файл конфигурации из шаблона  
+## Role Description  
 
-### handlers
-- ```Start clickhouse service``` - запуск сервиса clickhouse-server, если был вызван с task ```Install clickhouse packages```
+### Role: ```clickhouse```
+Description - https://github.com/AlexeySetevoi/ansible-clickhouse/blob/master/README.md
 
+### Role: ```vector-role```
+Description - https://github.com/estomper/vector-role/blob/main/README.md
+
+### Role: ```lighthouse-role```
+Description - https://github.com/estomper/lighthouse-role/blob/main/README.md
+  
 ---
 ## Configure
 ```/inventory/prod.yml```  
 Необходимо указать IP или host_name серверов для установки
 
-```/clickhouse/vars.yml```  
-Необходимо указать версию пакетов для установки clickhouse
+```/roles/lighthouse-role/defaults/main.yml```  
+Необходимо указать пользователя, директорию установки и порт для lighthouse
 
-```/vector/vars.yml```  
+```/roles/vector-role/defaults/main.yml```  
 Необходимо указать версию дистрибутива для установки vector
 
 ---
 ## Install
-Для установки Clickhouse and Vector необходимо выполнить команду:  
-``` ansible-playbook -i inventory/prod.yml site.yml```  
+Для установки Clickhouse, Vector and LightHouse необходимо выполнить команды:  
+``` ansible-galaxy install -r requirements.yml -p roles ```  - для загрузки необходимых ролей  
+``` ansible-playbook -i inventory/prod.yml site.yml ```  - для выполнения устанвоки  
 где:  
 - ```prod.yml``` - inventory файл
 - ```site.yml``` - playbook файл.
