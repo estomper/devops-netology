@@ -36,12 +36,12 @@
 1. Перейдите в Scrum, запланируйте новый спринт, состоящий из задач эпика и одного бага, стартуйте спринт, проведите задачи до состояния Closed. Закройте спринт.
 2. Если всё отработалось в рамках ожидания — выгрузите схемы workflow для импорта в XML. Файлы с workflow и скриншоты workflow приложите к решению задания.  
   
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/01/img/img_1.png)  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/01/img/1.png)  
   
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/01/img/img_2.png)
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/01/img/2.png)  
 
-Bug workflow.xml - (https://github.com/estomper/devops-netology/blob/main/05-ci/01/Bug workflow.xml)  
-Task workflow.xml - (https://github.com/estomper/devops-netology/blob/main/05-ci/01/Task workflow.xml)  
+Bug workflow.xml - (https://github.com/estomper/devops-netology/blob/main/05-ci/01/Bug%20workflow.xml)  
+Task workflow.xml - (https://github.com/estomper/devops-netology/blob/main/05-ci/01/Task%20workflow.xml)  
 
 ---
 
