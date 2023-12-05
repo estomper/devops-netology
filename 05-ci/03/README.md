@@ -7,8 +7,14 @@
 3. Добавьте в [files](./infrastructure/files/) файл со своим публичным ключом (id_rsa.pub). Если ключ называется иначе — найдите таску в плейбуке, которая использует id_rsa.pub имя, и исправьте на своё.
 4. Запустите playbook, ожидайте успешного завершения.
 5. Проверьте готовность SonarQube через [браузер](http://localhost:9000).
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_1.png)
+
 6. Зайдите под admin\admin, поменяйте пароль на свой.
 7.  Проверьте готовность Nexus через [бразуер](http://localhost:8081).
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_2.png)
+  
 8. Подключитесь под admin\admin123, поменяйте пароль, сохраните анонимный доступ.
 
 ## Знакомоство с SonarQube
@@ -19,11 +25,19 @@
 2. Скачайте пакет sonar-scanner, который вам предлагает скачать SonarQube.
 3. Сделайте так, чтобы binary был доступен через вызов в shell (или поменяйте переменную PATH, или любой другой, удобный вам способ).
 4. Проверьте `sonar-scanner --version`.
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_3.png)
+
 5. Запустите анализатор против кода из директории [example](./example) с дополнительным ключом `-Dsonar.coverage.exclusions=fail.py`.
 6. Посмотрите результат в интерфейсе.
+  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_4.png)
+
 7. Исправьте ошибки, которые он выявил, включая warnings.
 8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
 9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
+  
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_5.png)
 
 ## Знакомство с Nexus
 
@@ -39,7 +53,10 @@
    
 2. В него же загрузите такой же артефакт, но с version: 8_102.
 3. Проверьте, что все файлы загрузились успешно.
-4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта.
+  
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_6.png)
+
+4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта. - https://github.com/estomper/devops-netology/blob/main/05-ci/03/maven-metadata.xml  
 
 ### Знакомство с Maven
 
@@ -49,14 +66,23 @@
 2. Разархивируйте, сделайте так, чтобы binary был доступен через вызов в shell (или поменяйте переменную PATH, или любой другой, удобный вам способ).
 3. Удалите из `apache-maven-<version>/conf/settings.xml` упоминание о правиле, отвергающем HTTP- соединение — раздел mirrors —> id: my-repository-http-unblocker.
 4. Проверьте `mvn --version`.
+  
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_7.png)
+
 5. Заберите директорию [mvn](./mvn) с pom.
 
 ### Основная часть
 
 1. Поменяйте в `pom.xml` блок с зависимостями под ваш артефакт из первого пункта задания для Nexus (java с версией 8_282).
 2. Запустите команду `mvn package` в директории с `pom.xml`, ожидайте успешного окончания.
+  
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_8.png)
+
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
-4. В ответе пришлите исправленный файл `pom.xml`.
+  
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/05-ci/03/img/img_9.png)
+
+4. В ответе пришлите исправленный файл `pom.xml`. - https://github.com/estomper/devops-netology/blob/main/05-ci/03/mvn/pom.xml
 
 ---
 
