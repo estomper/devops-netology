@@ -1,0 +1,24 @@
+stages:
+  - build
+  - deploy
+image: docker:20.10.5
+services:
+  - docker:20.10.5-dind
+builder:
+  stage: build
+  tags:
+    - shell_runner
+  script:
+    - docker build -t hello:gitlab-$CI_COMMIT_SHORT_SHA .
+  except:
+    - main
+deployer:
+  stage: deploy
+  tags:
+    - shell_runner
+  script:
+    - docker build -t $CI_REGISTRY/root/netology/hello:gitlab-$CI_COMMIT_SHORT_SHA .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker push $CI_REGISTRY/root/netology/hello:gitlab-$CI_COMMIT_SHORT_SHA
+  only:
+    - main

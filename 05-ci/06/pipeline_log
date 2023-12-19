@@ -1,0 +1,69 @@
+Running with gitlab-runner 16.6.1 (f5da3c5a)
+  on gitlab-runner Sz6L4svz, system ID: s_0ceb1d99f95e
+Preparing the "shell" executor
+00:00
+Using Shell (bash) executor...
+Preparing environment
+00:00
+Running on gitlab-runner...
+Getting source from Git repository
+00:00
+Fetching changes with git depth set to 20...
+Reinitialized existing Git repository in /home/gitlab-runner/builds/Sz6L4svz/0/root/netology/.git/
+Checking out 83e44413 as detached HEAD (ref is main)...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+00:02
+$ docker build -t $CI_REGISTRY/root/netology/hello:gitlab-$CI_COMMIT_SHORT_SHA .
+#0 building with "default" instance using docker driver
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 254B done
+#1 DONE 0.1s
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.1s
+#3 [internal] load metadata for docker.io/library/centos:7
+#3 DONE 0.9s
+#4 [1/6] FROM docker.io/library/centos:7@sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4
+#4 DONE 0.0s
+#5 [internal] load build context
+#5 transferring context: 464B done
+#5 DONE 0.0s
+#6 [2/6] RUN yum install python3 python3-pip -y
+#6 CACHED
+#7 [3/6] COPY requirements.txt requirements.txt
+#7 CACHED
+#8 [4/6] RUN pip3 install -r requirements.txt
+#8 CACHED
+#9 [5/6] WORKDIR /python_api
+#9 CACHED
+#10 [6/6] COPY python-api.py python-api.py
+#10 CACHED
+#11 exporting to image
+#11 exporting layers done
+#11 writing image sha256:5841cc0a253978fe04e79a6fa167a0b9c33770cb88c4c880e4f59a735964a5e7 0.0s done
+#11 naming to 158.160.123.159:5050/root/netology/hello:gitlab-83e44413 0.0s done
+#11 DONE 0.0s
+$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /home/gitlab-runner/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+Login Succeeded
+$ docker push $CI_REGISTRY/root/netology/hello:gitlab-$CI_COMMIT_SHORT_SHA
+The push refers to repository [158.160.123.159:5050/root/netology/hello]
+67665b3efa63: Preparing
+9018f9a327b1: Preparing
+857da27adb35: Preparing
+e231587224a6: Preparing
+2e77de30c24e: Preparing
+174f56854903: Preparing
+174f56854903: Waiting
+e231587224a6: Layer already exists
+9018f9a327b1: Layer already exists
+857da27adb35: Layer already exists
+2e77de30c24e: Layer already exists
+174f56854903: Layer already exists
+67665b3efa63: Pushed
+gitlab-83e44413: digest: sha256:c66f2ab5979e883c151e7a210655ec9c730b6b2ae8cea1e3d219267de60fa6eb size: 1573
+Job succeeded
