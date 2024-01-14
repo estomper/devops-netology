@@ -65,7 +65,7 @@ node_filesystem_avail_bytes
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
 2. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
 ## Ответ:
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/06-monitoring/02/img/5.png)  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/06-monitoring/02/img/6.png)  
   
 ## Задание 4
 
