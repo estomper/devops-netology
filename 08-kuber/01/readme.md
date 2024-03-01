@@ -67,7 +67,7 @@
 
 #
 ## Ответ
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/01/img/2.png)  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/01/img/2.jpg)  
 
 ------
 
@@ -78,7 +78,7 @@
 
 #
 ## Ответ
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/01/img/1.png)  
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/01/img/1.jpg)  
 
 ------
 
