@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-busybox
+  labels:
+    app: nginx-busybox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-busybox
+  template:
+    metadata:
+      labels:
+        app: nginx-busybox
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+      initContainers:
+      - name: init-myservice
+        image: busybox:1.28
+        command: ['sh', '-c', "for i in {1..100}; do sleep 1; if nslookup nginx-busybox-svc; then exit 0; fi; done; exit 1"]
