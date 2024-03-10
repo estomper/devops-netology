@@ -27,11 +27,11 @@
 1. Создать Deployment приложения, состоящего из двух контейнеров — nginx и multitool. Решить возникшую ошибку.
 2. После запуска увеличить количество реплик работающего приложения до 2.
 3. Продемонстрировать количество подов до и после масштабирования.
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/02/img/1.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/03/img/1.png) 
 4. Создать Service, который обеспечит доступ до реплик приложений из п.1.
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/02/img/2.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/03/img/2.png) 
 5. Создать отдельный Pod с приложением multitool и убедиться с помощью `curl`, что из пода есть доступ до приложений из п.1.
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/02/img/3.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/03/img/3.png) 
 
 ------
 
@@ -41,7 +41,7 @@
 2. Убедиться, что nginx не стартует. В качестве Init-контейнера взять busybox.
 3. Создать и запустить Service. Убедиться, что Init запустился.
 4. Продемонстрировать состояние пода до и после запуска сервиса.
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/02/img/4.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/03/img/4.png) 
 
 ------
 
