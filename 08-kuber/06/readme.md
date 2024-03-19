@@ -48,7 +48,7 @@
 3. Продемонстрировать возможность чтения файла изнутри пода.
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 
-![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/06/img/1.png)
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/06/img/2.png)
 ------
 
 ### Правила приёма работы
