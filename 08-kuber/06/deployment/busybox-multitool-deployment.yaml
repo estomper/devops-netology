@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multitool-busybox
+  labels:
+    app: multitool-busybox
+spec:
+  replicas: 
+  selector:
+    matchLabels:
+      app: multitool-busybox
+  template:
+    metadata:
+      labels:
+        app: multitool-busybox
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:1.28
+        command: ['sh', '-c', 'while true; do echo `date` -  Success! >> /output/logs.log; sleep 5; done']
+        volumeMounts:
+        - name: vol
+          mountPath: /output
+      - name: multitool
+        image: wbitt/network-multitool
+        volumeMounts:
+        - name: vol
+          mountPath: /input
+      volumes:
+      - name: vol
+        hostPath:
+          path: /home/alex/volumes
+        
