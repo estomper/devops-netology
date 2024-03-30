@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: logs-describe-pods
+  namespace: default
+subjects:
+- kind: User
+  name: alex_test
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: logs-describe-pods
+  apiGroup: rbac.authorization.k8s.io
