@@ -25,14 +25,14 @@
 ----
 ## Ответ
 
-### Минимальный кластер K8S - 3 ноды по 12 core / 24GB:
+### Минимальный кластер K8S - 3 ноды по 12 cores / 24GB:
 
 ### CPU:  
-6 core - минимум (без отказоустойчивости) +  
-50% - 3 core - для возможности переезда pod'ов в случае выхода из строя 1 ноды +  
-20% - 2 core - чтобы не потреблять ресурсы в "потолок" +  
+6 cores - минимум (без отказоустойчивости) +  
+50% - 3 cores - для возможности переезда pod'ов в случае выхода из строя 1 ноды +  
+20% - 2 cores - чтобы не потреблять ресурсы в "потолок" +  
 100m vCPU для kubelet and operating system (см. Рассчет для kubelet and operating system) +  
-**итого: 12 core**
+**итого: 12 cores**
 
 Рассчет для kubelet and operating system:  
 6% of the first core        = 60m +  
@@ -51,7 +51,7 @@
 **итого: 24GB**
 
 Рассчет для kubelet and operating system:  
-25% of the first 4GB of memory = 1GB +
+25% of the first 4GB of memory = 1GB +  
 20% of the following 4GB of memory  = 0.8GB +  
 10% of the following 8GB of memory  = 0.8GB +  
 10% of the following 8GB of memory  = 0.8GB +  
