@@ -25,7 +25,7 @@
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/12/img/3.png)  
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/12/img/4.png)  
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/12/img/5.png)  
-3. Запуск etcd производить на мастере.  
+3. Запуск etcd производить на мастере.
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/12/img/6.png)  
 4. Способ установки выбрать самостоятельно.
 
