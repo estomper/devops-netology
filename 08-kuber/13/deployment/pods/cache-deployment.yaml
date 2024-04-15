@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cache
+  labels:
+    app: cache
+spec:
+  replicas: 
+  selector:
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      labels:
+        app: cache
+    spec:
+      containers:
+      - name: cache
+        image: wbitt/network-multitool
+        env:
+        - name: HTTP_PORT
+          value: "1380"
+        - name: HTTPS_PORT
+          value: "13443"
+        ports:
+        - containerPort: 1380
+        - containerPort: 13443
