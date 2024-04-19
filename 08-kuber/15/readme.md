@@ -15,7 +15,25 @@
 kubectl apply -f https://raw.githubusercontent.com/netology-code/kuber-homeworks/main/3.5/files/task.yaml
 ```
 2. Выявить проблему и описать.
+### Ответ:
+1. Отсутствуют ns: web, data
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/15/img/1.png)  
+
+2. Ошибки в логах пода web-consumer: curl: (6) Couldn't resolve host 'auth-db' из-за того что сервисы разположены в разных ns и необходимо изменить адрес вызова сервиса auth-db указав ns
+
 3. Исправить проблему, описать, что сделано.
+### Ответ:
+1. Создать ns: web, data
+```
+kubectl create ns web
+kubectl create ns data
+```
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/15/img/2.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/15/img/3.png)  
+
+2. Исправлен адрес вызова сервиса auth-db в deployment скервиса web
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/15/img/1.png) 
+
 4. Продемонстрировать, что проблема решена.
 
 
