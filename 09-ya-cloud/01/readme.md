@@ -29,7 +29,7 @@
  - Создать route table. Добавить статический маршрут, направляющий весь исходящий трафик private сети в NAT-инстанс.
   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/09-ya-cloud/01/img/7.png)  
  - Создать в этой приватной подсети виртуалку с внутренним IP, подключиться к ней через виртуалку, созданную ранее, и убедиться, что есть доступ к интернету.
-  ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/09-ya-cloud/01/img/5.png)
+  ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/09-ya-cloud/01/img/6.png)
   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/09-ya-cloud/01/img/8.png)    
 
 Resource Terraform для Yandex Cloud:
