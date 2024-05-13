@@ -19,6 +19,7 @@
  - Положить в бакет файл с картинкой.
   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/09-ya-cloud/02/img/2.png)  
  - Сделать файл доступным из интернета.
+   
   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/09-ya-cloud/02/img/3.png)  
  
 2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:
