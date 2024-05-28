@@ -31,7 +31,7 @@ kubectl create ns data
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/15/img/2.png) 
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/15/img/3.png)  
 
-2. Исправлен адрес вызова сервиса auth-db в deployment скервиса web
+2. Исправлен адрес вызова сервиса auth-db в deployment сервиса web
 ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/08-kuber/15/img/4.png) 
 
 4. Продемонстрировать, что проблема решена.
