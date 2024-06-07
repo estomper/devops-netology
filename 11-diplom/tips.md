@@ -15,6 +15,8 @@ https://ydb.tech/docs/ru/reference/ydb-cli/export-import/auth-s3
 ```
 yc iam access-key list --service-account-name=sa
 ```
+yc iam access-key create --service-account-name s3account
+yc iam key create --service-account-name sa -o /tmp/key.json
 
 2. Create S3
 https://yandex.cloud/ru/docs/ydb/terraform/dynamodb-tables
@@ -105,3 +107,5 @@ https://public.ecr.aws - зеркало Amazon
 
 git checkout -b dev
 git push
+git checkout main
+git branch --delete dev

@@ -26,10 +26,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Configure YC credentials
-        id: login-cr
         uses: yc-actions/yc-cr-login@v1
         with:
-          ya-sa-json-credentials: ${{ secrets.YC_ACCESS_KEY }}
+          ya-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
