@@ -25,10 +25,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Configure YC credentials
-        uses: yc-actions/yc-cr-login@v1
+      - name: Login to Yandex Cloud Container Registry
+        id: login-cr
+        uses: yc-actions/yc-cr-login@v2
         with:
-          ya-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
