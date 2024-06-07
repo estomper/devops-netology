@@ -1,4 +1,4 @@
-/*
+
 resource "yandex_kubernetes_cluster" "k8s-cluster" {
   name = "k8s-cluster"
   network_id = "${yandex_vpc_network.default.id}"
@@ -181,4 +181,3 @@ resource "yandex_kubernetes_node_group" "worker-nodes-d" {
     }
   }
 }
-*/
