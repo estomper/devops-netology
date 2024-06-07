@@ -16,7 +16,7 @@ https://ydb.tech/docs/ru/reference/ydb-cli/export-import/auth-s3
 yc iam access-key list --service-account-name=sa
 ```
 yc iam access-key create --service-account-name s3account
-yc iam key create --service-account-name sa -o /tmp/key.json
+yc iam key create --service-account-name sa-k8s -o /tmp/k8s-key.json
 
 2. Create S3
 https://yandex.cloud/ru/docs/ydb/terraform/dynamodb-tables
