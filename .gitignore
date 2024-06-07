@@ -6,5 +6,7 @@
 *.tfstate
 *.tfstate.*
 key.json
+sa-key.json
+sa.tf
 # own secret vars store.
 personal.auto.tfvars
