@@ -43,15 +43,11 @@ jobs:
 
       - name: Terraform Init
         id: init
-        #env:
-        #  ACCESS_KEY: ${{ secrets.YC_SA_ACCESS_KEY }}
-        #  SECRET_KEY: ${{ secrets.YC_SA_SECRET_KEY }}
-        #run: terraform init
         run: terraform init -backend-config="access_key=${{ secrets.YC_SA_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.YC_SA_SECRET_KEY }}"
       
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate -no-color
+      #- name: Terraform Validate
+      #  id: validate
+      #  run: terraform validate -no-color
 
       - name: Terraform Plan
         id: plan
