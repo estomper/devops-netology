@@ -43,11 +43,11 @@ jobs:
 
       - name: Terraform Init
         id: init
-        env:
-          ACCESS_KEY: ${{ secrets.YC_SA_ACCESS_KEY }}
-          SECRET_KEY: ${{ secrets.YC_SA_SECRET_KEY }}
+        #env:
+        #  ACCESS_KEY: ${{ secrets.YC_SA_ACCESS_KEY }}
+        #  SECRET_KEY: ${{ secrets.YC_SA_SECRET_KEY }}
         #run: terraform init
-        run: terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY"
+        run: terraform init -backend-config="access_key=${{ secrets.YC_SA_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.YC_SA_SECRET_KEY }}"
       
       - name: Terraform Validate
         id: validate
@@ -79,7 +79,7 @@ jobs:
             
             Results for commit: ${{ github.event.pull_request.head.sha }}
 
-            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Working Directory: \`${{ matrix.tf_actions_working_dir }}\`, Workflow: \`${{ github.workflow }}\`*`;
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Working Directory: \`${{ env.working-directory }}\`, Workflow: \`${{ github.workflow }}\`*`;
               
             github.issues.createComment({
               issue_number: context.issue.number,
