@@ -13,6 +13,8 @@ terraform {
     key    = "terraform/terraform.tfstate"
     skip_region_validation      = true
     skip_credentials_validation = true
+    access_key="${ secrets.YC_SA_ACCESS_KEY }"
+    secret_key="${ secrets.YC_SA_SECRET_KEY }"
 }
 }
 
