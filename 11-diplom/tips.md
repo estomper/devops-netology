@@ -105,3 +105,5 @@ https://public.ecr.aws - зеркало Amazon
 
 git checkout -b dev
 git push
+git checkout main
+git branch --delete dev

@@ -43,7 +43,7 @@ resource "yandex_kubernetes_cluster" "k8s-cluster" {
   node_service_account_id = "${var.sa_k8s_id}"
 }
 
-# Create K8S worker-nodes-a
+# Create worker-nodes-a
 resource "yandex_kubernetes_node_group" "worker-nodes-a" {
   cluster_id = "${yandex_kubernetes_cluster.k8s-cluster.id}"
   name       = "worker-nodes-a"
