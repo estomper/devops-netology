@@ -5,19 +5,19 @@ on:
     branches:
       - main
     paths:
-      - 'terraform/main/**'
+      - '11-diplom/terraform/main/**'
   pull_request:
     branches:
       - main
     paths:
-      - 'terraform/main/**'
+      - '11-diplom/terraform/main/**'
 
 jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
     env:
-      working-directory: terraform/main/
+      working-directory: 11-diplom/terraform/main/
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
