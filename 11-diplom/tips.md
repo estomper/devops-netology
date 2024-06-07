@@ -100,3 +100,8 @@ https://quay.io - зеркало Redhat
 https://registry.access.redhat.com - зеркало Redhat
 https://registry.redhat.io - зеркало Redhat
 https://public.ecr.aws - зеркало Amazon
+
+6. Git Hub CI-CD
+
+git checkout -b dev
+git push
