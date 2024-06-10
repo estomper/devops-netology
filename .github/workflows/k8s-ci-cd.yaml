@@ -59,7 +59,6 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-          #YC_SA_TOKEN: ${{ secrets.YC_SA_TOKEN }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -90,4 +89,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: terraform apply -var 'yc_sa_terraform_json_credentials=${{ secrets.YC_SA_TERRAFORM_JSON_CREDENTIALS }}' -auto-approve
