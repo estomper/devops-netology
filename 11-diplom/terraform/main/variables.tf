@@ -20,8 +20,8 @@ variable "sa_k8s_id" {
   default = "ajelcp7uj1iq2c3cseq0"
 }
 
-# sa_token
-variable "token" {}
+# sa_json_credentials
+variable "yc_sa_terraform_json_credentials" {}
 
 # IP
 variable "host_ip" {
