@@ -15,17 +15,19 @@ jobs:
         with: # defaults to latest kubectl binary version
           config: ${{ secrets.KUBE_CONFIG_DATA }}
           #command: set image --record deployment/my-app container=${{ github.repository }}:${{ github.sha }}
-          command: kubectl apply --server-side -f /11-diplom/kube-prometheus-release-0.13/manifests/setup
+          command: apply --server-side -f /11-diplom/kube-prometheus-release-0.13/manifests/setup
 
       - name: deploy to cluster wait
         uses: actions/checkout@v2
+        with:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: kubectl wait	--for condition=Established --all CustomResourceDefinition --namespace=monitoring
+          command: wait	--for condition=Established --all CustomResourceDefinition --namespace=monitoring
 
       - name: deploy to cluster wait
         uses: actions/checkout@v2
+        with:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: kubectl apply -f /11-diplom/kube-prometheus-release-0.13/manifests/
+          command: apply -f /11-diplom/kube-prometheus-release-0.13/manifests/
     
     
     #- name: verify deployment
