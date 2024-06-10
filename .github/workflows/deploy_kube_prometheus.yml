@@ -21,9 +21,13 @@ jobs:
           args: apply --server-side -f ./11-diplom/kube-prometheus-release-0.13/manifests/setup
 
       - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
           args: apply --server-side -f ./11-diplom/kube-prometheus-release-0.13/manifests/setup
 
       - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
           args: apply -f ./11-diplom/kube-prometheus-release-0.13/manifests/
