@@ -11,23 +11,29 @@ jobs:
     steps:
       - name: deploy to cluster --server-side
         uses: actions/checkout@v2
-          #uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-          config: ${{ secrets.KUBE_CONFIG_DATA }}
+        uses: actions-hub/kubectl@main
+        #with: # defaults to latest kubectl binary version
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
+          #config: ${{ secrets.KUBE_CONFIG_DATA }}
           #command: set image --record deployment/my-app container=${{ github.repository }}:${{ github.sha }}
-          command: apply --server-side -f /11-diplom/kube-prometheus-release-0.13/manifests/setup
+          #command: apply --server-side -f /11-diplom/kube-prometheus-release-0.13/manifests/setup
+        with:
+          args: apply --server-side -f /11-diplom/kube-prometheus-release-0.13/manifests/setup
 
       - name: deploy to cluster wait
-        uses: actions/checkout@v2
+        uses: actions-hub/kubectl@main
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          config: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: wait	--for condition=Established --all CustomResourceDefinition --namespace=monitoring
+          args: apply --server-side -f /11-diplom/kube-prometheus-release-0.13/manifests/setup
 
-      - name: deploy to cluster wait
-        uses: actions/checkout@v2
+      - name: deploy to cluster apply
+        uses: actions-hub/kubectl@main
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          config: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: apply -f /11-diplom/kube-prometheus-release-0.13/manifests/
+          args: apply -f /11-diplom/kube-prometheus-release-0.13/manifests/
     
     
     #- name: verify deployment
