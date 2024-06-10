@@ -116,3 +116,4 @@ git branch --delete dev
 terraform plan -var="token="${ secrets.YC_SA_TOKEN }""
 terraform apply -var="token="${ secrets.YC_SA_TOKEN }""
 ```
+            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
