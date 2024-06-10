@@ -25,6 +25,7 @@ variable "yc_sa_terraform_json_credentials" {}
 
 # IP
 variable "host_ip" {
-  default = "92.255.137.0/24"
+  #default = "92.255.137.0/24"
+  default = "188.19.240.159/24"
 }
 
