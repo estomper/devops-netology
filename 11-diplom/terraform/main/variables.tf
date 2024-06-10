@@ -20,6 +20,9 @@ variable "sa_k8s_id" {
   default = "ajelcp7uj1iq2c3cseq0"
 }
 
+# sa_token
+variable "token" {}
+
 # IP
 variable "host_ip" {
   default = "92.255.137.0/24"
