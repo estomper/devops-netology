@@ -1,6 +1,6 @@
-on: push
-name: deploy
-  branches:
+on:
+  push:
+    branches:
       - main
     paths:
       - '11-diplom/kube-prometheus-release-0.13/**'
