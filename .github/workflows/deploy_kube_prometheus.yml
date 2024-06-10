@@ -1,0 +1,39 @@
+on: push
+name: deploy
+  branches:
+      - main
+    paths:
+      - '11-diplom/kube-prometheus-release-0.13/**'
+jobs:
+  deploy:
+    name: deploy kube-prometheus to cluster
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: deploy to cluster --server-side
+      #uses: steebchen/kubectl@v2.0.0
+      uses: actions/checkout@v2
+      with: # defaults to latest kubectl binary version
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        #command: set image --record deployment/my-app container=${{ github.repository }}:${{ github.sha }}
+        command: kubectl apply --server-side -f /11-diplom/kube-prometheus-release-0.13/manifests/setup
+
+      - name: deploy to cluster wait
+      uses: actions/checkout@v2
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        command: kubectl wait	--for condition=Established --all CustomResourceDefinition --namespace=monitoring
+
+      - name: deploy to cluster wait
+      uses: actions/checkout@v2
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        command: kubectl apply -f /11-diplom/kube-prometheus-release-0.13/manifests/
+    
+    
+    #- name: verify deployment
+    #  uses: steebchen/kubectl@v2.0.0
+    #  uses: actions/checkout@v2
+    #  with:
+    #    config: ${{ secrets.KUBE_CONFIG_DATA }}
+    #    version: v1.21.0 # specify kubectl binary version explicitly
+    #    binaries-url: "https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl" # specify the download url explicitly
+    #    command: rollout status deployment/my-app
