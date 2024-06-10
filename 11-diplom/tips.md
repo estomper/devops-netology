@@ -109,3 +109,10 @@ git checkout -b dev
 git push
 git checkout main
 git branch --delete dev
+
+7. Terraform 
+
+```
+terraform plan -var="token="${ secrets.YC_SA_TOKEN }""
+terraform apply -var="token="${ secrets.YC_SA_TOKEN }""
+```
