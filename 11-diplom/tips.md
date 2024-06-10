@@ -53,6 +53,8 @@ docker push cr.yandex/crpul4f5308ai5814ctv/nginx-netology:1.17
 https://github.com/prometheus-operator/kube-prometheus/tree/release-0.13
 https://yandex.cloud/ru/docs/managed-kubernetes/operations/create-load-balancer
 
+cat $HOME/.kube/config | base64
+
 ```
 kubectl apply --server-side -f manifests/setup
 kubectl wait \
@@ -117,3 +119,4 @@ terraform plan -var="token="${ secrets.YC_SA_TOKEN }""
 terraform apply -var="token="${ secrets.YC_SA_TOKEN }""
 ```
             #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+
