@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: app
+  annotations:
+    kubernetes.io/change-cause: "Set nginx image 1.28"
+spec:
+  replicas: 3
+  revisionHistoryLimit: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 80%
+      maxUnavailable: 80%
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: nginx
+        image: cr.yandex/crpul4f5308ai5814ctv/*******:*******
+        ports:
+        - containerPort: 80
+        
