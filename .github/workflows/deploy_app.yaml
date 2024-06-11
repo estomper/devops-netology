@@ -43,8 +43,16 @@ jobs:
         run: |
           docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG ./11-diplom/app/docker/
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
+      
+      - name: Prepare deployment
+        if: github.ref_type == 'tag'
+        env:
+          IMAGE_TAG: ${{ github.ref_name }}
+        run: |
+          cat ./11-diplom/deployment/app-deployment.yaml | sed "s/latest/$IMAGE_TAG/"
 
       - name: Deploy app
+        if: github.ref_type == 'tag'
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
