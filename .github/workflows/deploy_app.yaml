@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - '11-diplom/app/**'
-  push:
     tags:
       - '*'
 
