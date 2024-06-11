@@ -42,5 +42,5 @@ jobs:
           CR_REPOSITORY: app
           IMAGE_TAG: ${{ github.event.release.tag_name }}
         run: |
-          docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY ./11-diplom/app/docker/
-          docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY
+          docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG ./11-diplom/app/docker/
+          docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
