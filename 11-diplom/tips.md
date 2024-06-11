@@ -126,3 +126,6 @@ https://yandex.cloud/ru/docs/managed-kubernetes/operations/connect/create-static
 9. Grafana
 
 http://158.160.168.215:3000/login
+
+10. Build and publish app
+git push origin tag <tag_name>
