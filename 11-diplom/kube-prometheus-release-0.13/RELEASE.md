@@ -1,4 +1,4 @@
-# Release schedule
+## Release schedule
 
 Kube-prometheus has a somehow predictable release schedule, releases were
 historically cut in sync with OpenShift releases as per downstream needs.
