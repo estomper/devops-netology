@@ -52,4 +52,4 @@ jobs:
           CR_REPOSITORY: app
           IMAGE_TAG: ${{ github.ref_name }}
         with:
-          args: apply -f ./11-diplom/deployment/ --image=cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG -n app
+          args: cat ./11-diplom/deployment/app-deployment.yaml | sed "s/latest/$IMAGE_TAG/" | kubectl apply -f ./11-diplom/deployment/ -n app
