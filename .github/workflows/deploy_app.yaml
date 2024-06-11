@@ -1,0 +1,29 @@
+name: "App deploy K8S CI/CD"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '11-diplom/app/**'
+
+jobs:
+  deploy:
+    name: Deploy kube-prometheus to cluster
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to Yandex Cloud Container Registry
+        id: login-cr
+        uses: yc-actions/yc-cr-login@v2
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }
+
+      - name: Build, tag, and push image to Yandex Cloud Container Registry
+        env:
+          CR_REGISTRY: crpul4f5308ai5814ctv
+          CR_REPOSITORY: app
+          IMAGE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
+          docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG

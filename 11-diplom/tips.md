@@ -122,3 +122,7 @@ terraform apply -var="token="${ secrets.YC_SA_TOKEN }""
 
 8. Статический файл конфигурации
 https://yandex.cloud/ru/docs/managed-kubernetes/operations/connect/create-static-conf
+
+9. Grafana
+
+http://158.160.168.215:3000/login
