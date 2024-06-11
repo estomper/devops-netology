@@ -38,10 +38,16 @@
 Предварительная подготовка к установке и запуску Kubernetes кластера.
 
 1. Создайте сервисный аккаунт, который будет в дальнейшем использоваться Terraform для работы с инфраструктурой с необходимыми и достаточными правами. Не стоит использовать права суперпользователя
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/sa/1.png)  
+ [Terraform create SA](https://github.com/estomper/devops-netology/blob/main/11-diplom/terraform/1-1-create-sa)
 2. Подготовьте [backend](https://www.terraform.io/docs/language/settings/backends/index.html) для Terraform:  
    а. Рекомендуемый вариант: S3 bucket в созданном ЯО аккаунте(создание бакета через TF)
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/s3/1.png)  
+ ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/s3/2.png) 
+  [Terraform create bucket](https://github.com/estomper/devops-netology/blob/main/11-diplom/terraform/1-2-s3-bucket)
    б. Альтернативный вариант:  [Terraform Cloud](https://app.terraform.io/)  
 3. Создайте VPC с подсетями в разных зонах доступности.
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/k8s/2.png)  
 4. Убедитесь, что теперь вы можете выполнить команды `terraform destroy` и `terraform apply` без дополнительных ручных действий.
 5. В случае использования [Terraform Cloud](https://app.terraform.io/) в качестве [backend](https://www.terraform.io/docs/language/settings/backends/index.html) убедитесь, что применение изменений успешно проходит, используя web-интерфейс Terraform cloud.
 
@@ -62,8 +68,13 @@
    б. Подготовить [ansible](https://www.ansible.com/) конфигурации, можно воспользоваться, например [Kubespray](https://kubernetes.io/docs/setup/production-environment/tools/kubespray/)  
    в. Задеплоить Kubernetes на подготовленные ранее инстансы, в случае нехватки каких-либо ресурсов вы всегда можете создать их при помощи Terraform.
 2. Альтернативный вариант: воспользуйтесь сервисом [Yandex Managed Service for Kubernetes](https://cloud.yandex.ru/services/managed-kubernetes)  
-  а. С помощью terraform resource для [kubernetes](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster) создать **региональный** мастер kubernetes с размещением нод в разных 3 подсетях      
+  а. С помощью terraform resource для [kubernetes](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster) создать **региональный** мастер kubernetes с размещением нод в разных 3 подсетях     
+   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/k8s/1.png)  
+   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/k8s/3.png)  
+   [Terraform create K8S](https://github.com/estomper/devops-netology/blob/main/11-diplom/terraform/main)
   б. С помощью terraform resource для [kubernetes node group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group)
+   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/k8s/2.png) 
+   [Terraform create K8S](https://github.com/estomper/devops-netology/blob/main/11-diplom/terraform/main)
   
 Ожидаемый результат:
 
@@ -81,6 +92,11 @@
 1. Рекомендуемый вариант:  
    а. Создайте отдельный git репозиторий с простым nginx конфигом, который будет отдавать статические данные.  
    б. Подготовьте Dockerfile для создания образа приложения.  
+   [Dockerfile](https://github.com/estomper/devops-netology/blob/main/11-diplom/app/docker)
+   ![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/registry/2.png) 
+   [Terraform create regestry](https://github.com/estomper/devops-netology/blob/main/11-diplom/terraform/main)
+   
+  
 2. Альтернативный вариант:  
    а. Используйте любой другой код, главное, чтобы был самостоятельно создан Dockerfile.
 
@@ -103,6 +119,13 @@
 1. Воспользовать пакетом [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus), который уже включает в себя [Kubernetes оператор](https://operatorhub.io/) для [grafana](https://grafana.com/), [prometheus](https://prometheus.io/), [alertmanager](https://github.com/prometheus/alertmanager) и [node_exporter](https://github.com/prometheus/node_exporter). При желании можете собрать все эти приложения отдельно.
 2. Для организации конфигурации использовать [qbec](https://qbec.io/), основанный на [jsonnet](https://jsonnet.org/). Обратите внимание на имеющиеся функции для интеграции helm конфигов и [helm charts](https://helm.sh/)
 3. Если на первом этапе вы не воспользовались [Terraform Cloud](https://app.terraform.io/), то задеплойте и настройте в кластере [atlantis](https://www.runatlantis.io/) для отслеживания изменений инфраструктуры. Альтернативный вариант 3 задания: вместо Terraform Cloud или atlantis настройте на автоматический запуск и применение конфигурации terraform из вашего git-репозитория в выбранной вами CI-CD системе при любом комите в main ветку. Предоставьте скриншоты работы пайплайна из CI/CD системы.
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/grafana/1.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/grafana/2.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/grafana-cicd/1.png) 
+[Grafana](http://158.160.168.215:3000/login) viewer / viewer
+[Grafana CI-CD GitHub Actions](https://github.com/estomper/devops-netology/blob/main/.github/workflows/deploy_kube_prometheus.yml)
+[Grafana Deployment](https://github.com/estomper/devops-netology/blob/main/11-diplom/kube-prometheus-release-0.13)
+
 
 Ожидаемый результат:
 1. Git репозиторий с конфигурационными файлами для настройки Kubernetes.
@@ -118,8 +141,12 @@
 Цель:
 
 1. Автоматическая сборка docker образа при коммите в репозиторий с тестовым приложением.
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/app-cicd/1.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/app-cicd/2.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/app-cicd/3.png) 
 2. Автоматический деплой нового docker образа.
-
+[App CI-CD GitHub Actions](https://github.com/estomper/devops-netology/blob/main/.github/workflows/deploy_app.yaml)
+[App Web](http://158.160.169.106:9000/)
 Можно использовать [teamcity](https://www.jetbrains.com/ru-ru/teamcity/), [jenkins](https://www.jenkins.io/), [GitLab CI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/) или GitHub Actions.
 
 Ожидаемый результат:
@@ -132,9 +159,22 @@
 ## Что необходимо для сдачи задания?
 
 1. Репозиторий с конфигурационными файлами Terraform и готовность продемонстрировать создание всех ресурсов с нуля.
+[Terraform](https://github.com/estomper/devops-netology/blob/main/11-diplom/terraform/main)
 2. Пример pull request с комментариями созданными atlantis'ом или снимки экрана из Terraform Cloud или вашего CI-CD-terraform pipeline.
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/k8s-cicd/1.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/k8s-cicd/1.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/k8s-cicd/2.png) 
+![ScreenShot](https://github.com/estomper/devops-netology/blob/main/11-diplom/img/app-cicd/3.png) 
 3. Репозиторий с конфигурацией ansible, если был выбран способ создания Kubernetes кластера при помощи ansible.
 4. Репозиторий с Dockerfile тестового приложения и ссылка на собранный docker image.
+[Dockerfile](https://github.com/estomper/devops-netology/blob/main/11-diplom/app/docker)
+Image v1.0.15
+```
+docker pull cr.yandex/crpul4f5308ai5814ctv/app:v1.0.15)
+```
 5. Репозиторий с конфигурацией Kubernetes кластера.
+[K8S](https://github.com/estomper/devops-netology/blob/main/11-diplom/terraform/main)
 6. Ссылка на тестовое приложение и веб интерфейс Grafana с данными доступа.
+[App Web](http://158.160.169.106:9000/)
+[Grafana](http://158.160.168.215:3000/login) viewer / viewer
 7. Все репозитории рекомендуется хранить на одном ресурсе (github, gitlab)
