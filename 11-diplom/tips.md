@@ -129,3 +129,6 @@ http://158.160.168.215:3000/login
 
 10. Build and publish app
 git push origin tag <tag_name>
+
+docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG ./11-diplom/app/docker
+docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
