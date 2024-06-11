@@ -120,3 +120,5 @@ terraform apply -var="token="${ secrets.YC_SA_TOKEN }""
 ```
             #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
 
+8. Статический файл конфигурации
+https://yandex.cloud/ru/docs/managed-kubernetes/operations/connect/create-static-conf
