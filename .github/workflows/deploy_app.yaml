@@ -49,7 +49,7 @@ jobs:
         env:
           IMAGE_TAG: ${{ github.ref_name }}
         run: |
-          cat ./11-diplom/deployment/app-deployment.yaml | sed "s/latest/$IMAGE_TAG/"
+          cat ./11-diplom/app/deployment/app-deployment.yaml | sed "s/latest/$IMAGE_TAG/"
 
       - name: Deploy app
         if: github.ref_type == 'tag'
@@ -57,4 +57,4 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply -f ./11-diplom/deployment/ -n app
+          args: apply -f ./11-diplom/app/deployment/ -n app
