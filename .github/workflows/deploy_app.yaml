@@ -44,12 +44,12 @@ jobs:
           docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG ./11-diplom/app/docker/
           docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
 
-        - name: Deploy app
-          uses: actions-hub/kubectl@master
-          env:
-            KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
-            CR_REGISTRY: crpul4f5308ai5814ctv
-            CR_REPOSITORY: app
-            IMAGE_TAG: ${{ github.ref_name }}
-          with:
-            args: apply -f ./11-diplom/deployment/ --image=cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG -n app
+      - name: Deploy app
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
+          CR_REGISTRY: crpul4f5308ai5814ctv
+          CR_REPOSITORY: app
+          IMAGE_TAG: ${{ github.ref_name }}
+        with:
+          args: apply -f ./11-diplom/deployment/ --image=cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG -n app
