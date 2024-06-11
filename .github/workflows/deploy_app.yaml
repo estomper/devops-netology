@@ -6,9 +6,9 @@ on:
       - main
     paths:
       - '11-diplom/app/**'
-  label:
-    types:
-      - created
+  push:
+    tags:
+      - '*'
 
 jobs:
   deploy:
