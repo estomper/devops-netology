@@ -56,8 +56,5 @@ jobs:
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
-          CR_REGISTRY: crpul4f5308ai5814ctv
-          CR_REPOSITORY: app
-          IMAGE_TAG: ${{ github.ref_name }}
         with:
-          args: cat ./11-diplom/deployment/app-deployment.yaml | sed "s/latest/$IMAGE_TAG/" | kubectl apply -f ./11-diplom/deployment/ -n app
+          args: apply -f ./11-diplom/deployment/ -n app
